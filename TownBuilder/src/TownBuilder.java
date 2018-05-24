@@ -1,20 +1,23 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.ArrayList;
 
-public class TownBuilder extends Thread {
+public class TownBuilder{
 	Scanner sc = new Scanner(System.in);
 	int population = 100;
-	int employed = 100;
 	double money = 100;
 	int water = 100;
 	int food = 100;
 	int power = 100;
 	int happiness = 100;
+	
 	String[] map_rsc_names = {"water", "lumber", "coal", "oil", "metal"};
 	int[] map_rsc_values = {0, 0, 0, 0, 0};
-	String[] item_names = {"coal", "oil", "metal", "lumber", "bricks", "steel_scaffolding", "Steel", "plastic", "electronic_parts"};
+	
+	String[] item_names = {"coal", "oil", "metal", "lumber", "bricks", "steel", "plastic", "electronic_parts"};
 	double[] item_values = {};
 	int[] inventory = {100, 100, 100, 100, 100, 100, 100, 100, 100};
 	
+	ArrayList<Factory> factories = new ArrayList<Factory>();
 	
 	Market market = new Market();
 	
