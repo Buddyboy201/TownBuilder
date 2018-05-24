@@ -1,19 +1,61 @@
 import java.util.ArrayList;
 
 //categories: natural resources, construction materials, manufactured goods
-public class Market {
+public class Market extends Thread {
 	ArrayList<Item> natural_rsc = new ArrayList<Item>();
 	ArrayList<Item> construction_materials = new ArrayList<Item>();
 	ArrayList<Item> manufactured_goods = new ArrayList<Item>();
 	ArrayList<Item> tools = new ArrayList<Item>();
+	TownBuilder t;
 	
 	ArrayList<Item> for_sale = new ArrayList<Item>();
 	
-	public Market() {}
+	public Market(TownBuilder t) {
+		this.t = t;
+	}
 	
-	public double purchaseItem(int pos, String category)
+	public void run()
 	{
-		double price = 0;
+		while(true)
+		{
+			natural_rsc.add(new Item((int)(Math.random()*50), "natural_rsc", "coal", (int)(Math.random()*50), (int)(Math.random()*50)));
+			natural_rsc.add(new Item((int)(Math.random()*50), "natural_rsc", "oil", (int)(Math.random()*50), (int)(Math.random()*50)));
+			natural_rsc.add(new Item((int)(Math.random()*50), "natural_rsc", "metal", (int)(Math.random()*50), (int)(Math.random()*50)));
+			construction_materials.add(new Item((int)(Math.random()*50), "construction_materials", "lumber", (int)(Math.random()*50), (int)(Math.random()*50)));
+			construction_materials.add(new Item((int)(Math.random()*50), "construction_materials", "bricks", (int)(Math.random()*50), (int)(Math.random()*50)));
+			construction_materials.add(new Item((int)(Math.random()*50), "construction_materials", "steel", (int)(Math.random()*50), (int)(Math.random()*50)));
+			manufactured_goods.add(new Item((int)(Math.random()*50), "manufactured_goods", "plastic", (int)(Math.random()*50), (int)(Math.random()*50)));
+			manufactured_goods.add(new Item((int)(Math.random()*50), "manufactured_goods", "electronic_parts", (int)(Math.random()*50), (int)(Math.random()*50)));
+			for(Item i : natural_rsc)
+				System.out.println(i.name);
+			try {
+				Thread.sleep(60000);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.out.println(e);
+			}
+			for(Item i : for_sale)
+			{
+				sellItem(i);
+			}
+		}
+		
+	}
+	
+	public void sellItem(Item item)
+	{
+		double a = (double)(item.curr_value)/item.price;
+		double prob = Math.random();
+		if(prob-a < 0) 
+		{
+			t.money += item.price;
+			System.out.println("***" + item.quantity + " " + item.name + " were sold at " + item.price + "!");
+		}
+	}
+	
+	public int purchaseItem(int pos, String category)
+	{
+		int price = 0;
 		Item item;
 		switch(category)
 		{

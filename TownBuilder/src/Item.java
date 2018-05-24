@@ -1,12 +1,12 @@
 
 public class Item {
-	double curr_value;
+	int curr_value;
 	String category;
 	String name;
 	int quantity;
-	double price;
+	int price;
 	
-	public Item(double curr_value, String category, String name, int quantity, double price)
+	public Item(int curr_value, String category, String name, int quantity, int price)
 	{
 		this.curr_value = curr_value;
 		this.category = category;

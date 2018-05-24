@@ -38,6 +38,7 @@ public class Factory extends Thread{
 		}
     	 runFactory(town);
     	 }
+    	 
      }
      
      public void runFactory(TownBuilder t)
