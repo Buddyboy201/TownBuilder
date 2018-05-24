@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
-//categories: natural resources, food, construction materials, manufactured goods, tools
+//categories: natural resources, construction materials, manufactured goods
 public class Market {
 	ArrayList<Item> natural_rsc = new ArrayList<Item>();
-	ArrayList<Item> food = new ArrayList<Item>();
 	ArrayList<Item> construction_materials = new ArrayList<Item>();
 	ArrayList<Item> manufactured_goods = new ArrayList<Item>();
 	ArrayList<Item> tools = new ArrayList<Item>();
@@ -22,10 +21,6 @@ public class Market {
 			item = natural_rsc.get(pos-1);
 			price = item.price;
 			break;
-		case "food":
-			item = natural_rsc.get(pos-1);
-			price = item.price;
-			break;
 		case "construction_materials":
 			item = natural_rsc.get(pos-1);
 			price = item.price;
@@ -34,16 +29,16 @@ public class Market {
 			item = natural_rsc.get(pos-1);
 			price = item.price;
 			break;
-		case "tools":
-			item = natural_rsc.get(pos-1);
-			price = item.price;
-			break;
 		default:
 			System.out.println("Item not found");
 			break;
 		}
 		return price;
-		
+	}
+	
+	public void listOnMarket(Item item)
+	{
+		for_sale.add(item);
 	}
 	
 	public void printItems(String category)
@@ -58,21 +53,19 @@ public class Market {
 				System.out.print(count+") "+i.name+"("+i.quantity+"): "+i.price);
 			}
 			break;
-		case "food":
-			for(Item i : food)
-				System.out.print(i.name+"("+i.quantity+"): "+i.price);
-			break;
 		case "construction_materials":
 			for(Item i : construction_materials)
-				System.out.print(i.name+"("+i.quantity+"): "+i.price);
+			{
+				count++;
+				System.out.print(count+") "+i.name+"("+i.quantity+"): "+i.price);
+			}
 			break;
 		case "manufactured_goods":
 			for(Item i : manufactured_goods)
-				System.out.print(i.name+"("+i.quantity+"): "+i.price);
-			break;
-		case "tools":
-			for(Item i : tools)
-				System.out.print(i.name+"("+i.quantity+"): "+i.price);
+			{
+				count++;
+				System.out.print(count+") "+i.name+"("+i.quantity+"): "+i.price);
+			}
 			break;
 		default:
 			System.out.println("Not a valid category id");
