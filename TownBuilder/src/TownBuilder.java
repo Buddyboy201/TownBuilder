@@ -89,73 +89,73 @@ public class TownBuilder{
 					brick_factories++;
 					BrickFactory bf = new BrickFactory();
 					bf.buildFactory(game);
-					bf.run();
+					bf.start();
 					break;
 				case "CoalMine":
 					coal_mines++;
 					CoalMine cm = new CoalMine();
 					cm.buildFactory(game);
-					cm.run();
+					cm.start();
 					break;
 				case "CoalPowerPlant":
 					coal_power_plants++;
 					CoalPowerPlant cpp = new CoalPowerPlant();
 					cpp.buildFactory(game);
-					cpp.run();
+					cpp.start();
 					break;
 				case "Farm":
 					farms++;
 					Farm farm = new Farm();
 					farm.buildFactory(game);
-					farm.run();
+					farm.start();
 					break;
 				case "OilMine":
 					oil_mines++;
 					OilMine om = new OilMine();
 					om.buildFactory(game);
-					om.run();
+					om.start();
 					break;
 				case "OilPowerPlant":
 					oil_power_plants++;
 					OilPowerPlant opp = new OilPowerPlant();
 					opp.buildFactory(game);
-					opp.run();
+					opp.start();
 					break;
 				case "OreMine":
 					ore_mines++;
 					OreMine orm = new OreMine();
 					orm.buildFactory(game);
-					orm.run();
+					orm.start();
 					break;
 				case "PlasticFactory":
 					plastic_factories++;
 					PlasticFactory pf =new PlasticFactory();
 					pf.buildFactory(game);
-					pf.run();
+					pf.start();
 					break;
 				case "SteelFactory":
 					steel_factories++;
 					SteelFactory sf = new SteelFactory();
 					sf.buildFactory(game);
-					sf.run();
+					sf.start();
 					break;
 				case "WaterPump":
 					water_pumps++;
 					WaterPump wp = new WaterPump();
 					wp.buildFactory(game);
-					wp.run();
+					wp.start();
 					break;
 				case "Windmill":
 					windmills++;
 					Windmill w = new Windmill();
 					w.buildFactory(game);
-					w.run();
+					w.start();
 					break;
 				case "WoodcuttingPlant":
 					woodcutting_plants++;
 					WoodcuttingPlant wcp = new WoodcuttingPlant();
 					wcp.buildFactory(game);
-					wcp.run();
+					wcp.start();
 					break;
 				default:
 					System.out.println("Not a valid build type.");
@@ -355,6 +355,6 @@ public class TownBuilder{
 		TownBuilder game = new TownBuilder();
 		Market market = new Market(game);
 		game.gameLoop(game, market);
-		market.run();
+		market.start();
 	}
 }
